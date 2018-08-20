@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   glass:
-    image: docker.tradingapps.com:443/ta-qa-rhel7
+    image: docker.tradingapps.com:443/ta-qa-rhel7:20180820131234
     ports:
       - :80
       - :20000
