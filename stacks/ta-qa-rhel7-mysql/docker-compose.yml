@@ -1,0 +1,70 @@
+version: "3.3"
+services:
+  glass:
+    image: docker.tradingapps.com:443/ta-qa-rhel7
+    ports:
+      - :80
+      - :20000
+      - :20001
+      - :20002
+      - :20003
+      - :20004
+      - :20005
+    networks:
+      - default
+    volumes:
+      - /working
+      - /home/glass
+    deploy:
+      resources:
+        reservations:
+          memory: 3G
+      placement:
+        constraints:
+          - node.labels.qa == true
+      restart_policy:
+        condition: none
+    environment:
+      JOB_NAME=CI-BUILD-3.11.0_lin-rhel7-x64
+      GLASSES=hsbc-gbm
+      DEPLOY_EXTRA_ARGS=-force -qa-mail -qa-mail-ssl -single-glass -glass-dbs "mysql:host=db:database=GLASS"
+      STAY_ALIVE=TRUE
+      DEBUG_CONTAINER=TRUE
+      TARGET_HOST_FQDN=glass
+      MYSQL_ROOT_PASSWORD: ta
+      DB_TYPE: mysql
+      GLASS_MYSQL_HOST: db
+      GLASS_MYSQL_PORT: 3306
+      GLASS_MYSQL_DB_NAME: GLASS
+  db:
+    image: mariadb:latest
+    ports:
+      - :3306
+    networks:
+      - default
+    volumes:
+      - /var/lib/mysql
+    deploy:
+      resources:
+        reservations:
+          memory: 1G
+      placement:
+        constraints:
+          - node.labels.qa == true
+      restart_policy:
+        condition: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: ta
+
+  adminer:
+    image: adminer
+    networks:
+      - default
+    deploy:
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.labels.qa == true
+    ports:
+      - :8080
