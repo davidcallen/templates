@@ -27,7 +27,7 @@ services:
     environment:
       JOB_NAME: CI-BUILD-3.11.0_lin-rhel7-x64
       GLASSES: hsbc-gbm
-      DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -glass-dbs "mysql:host=db:database=GLASS"
+      DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
       STAY_ALIVE: "TRUE"
       DEBUG_CONTAINER: "TRUE"
       TARGET_HOST_FQDN: glass
