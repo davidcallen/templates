@@ -18,7 +18,6 @@ services:
           - node.labels.qa == true
       restart_policy:
         condition: none
-    env_file: .env
     environment:
       JOB_NAME:
       GLASSES: hsbc-gbm
