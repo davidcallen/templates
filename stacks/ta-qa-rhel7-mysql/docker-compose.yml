@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   glass:
-    image: docker.tradingapps.com:443/ta-qa-rhel7:20180907154150
+    image: docker.tradingapps.com:443/ta-qa-rhel7:20180907121421
     ports:
       - :80
     networks:
@@ -19,7 +19,8 @@ services:
       restart_policy:
         condition: none
     environment:
-      JOB_NAME: ${JOB_NAME}
+      JOB_NAME:
+      JOB_NAME_1:${JOB_NAME}
       GLASSES: hsbc-gbm
       DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
       STAY_ALIVE: "TRUE"
