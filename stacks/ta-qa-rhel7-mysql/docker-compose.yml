@@ -20,6 +20,7 @@ services:
         condition: none
     env_file: .env
     environment:
+      JOB_NAME:
       GLASSES: hsbc-gbm
       DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
       STAY_ALIVE: "TRUE"
