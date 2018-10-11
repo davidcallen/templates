@@ -18,6 +18,7 @@ services:
           - node.labels.qa == true
       restart_policy:
         condition: none
+    env_file: .env
     environment:
       GLASSES: hsbc-gbm
       DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
