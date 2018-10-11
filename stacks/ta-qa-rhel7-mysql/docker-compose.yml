@@ -4,17 +4,11 @@ services:
     image: docker.tradingapps.com:443/ta-qa-rhel7:20180824163354
     ports:
       - :80
-      - :20000
-      - :20001
-      - :20002
-      - :20003
-      - :20004
-      - :20005
     networks:
       - default
     volumes:
-      - /working
-      - /home/glass
+      - "working:/working"
+      - "glass:/home/glass"
     deploy:
       resources:
         reservations:
@@ -43,7 +37,7 @@ services:
     networks:
       - default
     volumes:
-      - /var/lib/mysql
+      - "mysql:/var/lib/mysql"
     deploy:
       resources:
         reservations:
@@ -68,3 +62,8 @@ services:
           - node.labels.qa == true
     ports:
       - :8080
+
+volumes:
+  glass:
+  working:
+  mysql:
