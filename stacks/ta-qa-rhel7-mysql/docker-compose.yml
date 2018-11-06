@@ -19,7 +19,7 @@ services:
       restart_policy:
         condition: none
     environment:
-      JOB_NAME: ${JOB_NAME}
+      JENKINS_JOB_NAME: ${JENKINS_JOB_NAME}
       GLASSES: ${GLASSES}
       DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
       STAY_ALIVE: "TRUE"
