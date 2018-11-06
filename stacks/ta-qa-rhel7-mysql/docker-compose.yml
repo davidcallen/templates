@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   glass:
-    image: docker.tradingapps.com:443/ta-qa-rhel7:20181011151544
+    image: docker.tradingapps.com:443/ta-qa-rhel7:20181102135943
     ports:
       - :80
     networks:
@@ -30,7 +30,15 @@ services:
       GLASS_MYSQL_HOST: db
       GLASS_MYSQL_PORT: 3306
       GLASS_MYSQL_DB_NAME: GLASS
-  db:
+      SUPPORT_FILES_SMB_PATH=//mksvr113.tradingapps.com/Files
+      SVN_HOST=mksvr114.tradingapps.com
+      SVN_USER=jenkins
+      SVN_PASSWORD=jenkins
+      JENKINS_HOST=docker.tradingapps.com
+      JENKINS_PORT=8080
+      JENKINS_USER=jenkins
+      JENKINS_PASSWORD=jenkins
+   db:
     image: mariadb:latest
     ports:
       - :3306
