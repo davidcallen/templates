@@ -38,7 +38,8 @@ services:
       JENKINS_PORT: 8080
       JENKINS_USER: jenkins
       JENKINS_PASSWORD: jenkins
-   db:
+
+  db:
     image: mariadb:latest
     ports:
       - :3306
