@@ -23,7 +23,7 @@ services:
       GLASSES: ${GLASSES}
       DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
       STAY_ALIVE: "TRUE"
-      DEBUG_CONTAINER: "TRUE"
+      DEBUG_CONTAINER: "FALSE"
       TARGET_HOST_FQDN: glass
       MYSQL_ROOT_PASSWORD: ta
       DB_TYPE: mysql
