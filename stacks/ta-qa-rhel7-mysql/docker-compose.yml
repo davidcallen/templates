@@ -12,7 +12,7 @@ services:
     deploy:
       resources:
         reservations:
-          memory: 3G
+          memory: 2G
       placement:
         constraints:
           - node.labels.qa == true
@@ -21,7 +21,7 @@ services:
     environment:
       JENKINS_JOB_NAME: ${JENKINS_JOB_NAME}
       GLASSES: ${GLASSES}
-      DEPLOY_EXTRA_ARGS: -force -qa-mail -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
+      DEPLOY_EXTRA_ARGS: -force -qa-mail-ssl -single-glass -minimal-glass-logging -glass-dbs "mysql:host=db:database=GLASS"
       STAY_ALIVE: "TRUE"
       DEBUG_CONTAINER: "FALSE"
       TARGET_HOST_FQDN: glass
