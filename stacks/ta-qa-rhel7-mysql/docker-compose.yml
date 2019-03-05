@@ -31,9 +31,9 @@ services:
       GLASS_MYSQL_PORT: 3306
       GLASS_MYSQL_DB_NAME: GLASS
       SUPPORT_FILES_SMB_PATH: //mksvr113.tradingapps.com/Files
-      SVN_HOST: mksvr114.tradingapps.com
+      SVN_HOST: mksvr115.tradingapps.com:3692
       SVN_USER: jenkins
-      SVN_PASSWORD: jenkins
+      SVN_PASSWORD: 01dec18
       JENKINS_HOST: ${JENKINS_HOST}
       JENKINS_PORT: 8080
       JENKINS_USER: jenkins
